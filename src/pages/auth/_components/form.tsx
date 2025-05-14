@@ -13,7 +13,7 @@ const navigate  = useNavigate()
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     loginUser(values).then((data) => {
-     navigate("/")
+     navigate("/cameras")
      localStorage.setItem("agent",data.data?.token)
     }).catch(() => {
   

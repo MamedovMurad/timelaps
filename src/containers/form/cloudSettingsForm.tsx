@@ -2,6 +2,8 @@
 import React from "react";
 import { Form, Input, Button } from "antd";
 import { CameraTypes } from "./cameraTypes";
+import { createCamera } from "../../api/camera";
+import { useNavigate } from "react-router-dom";
 
 interface FormValues {
     firstName: string;
@@ -12,10 +14,15 @@ interface FormValues {
 }
 
 const CloudSettingsForm: React.FC = () => {
+    const navigate = useNavigate()
     const [form] = Form.useForm<FormValues>();
 
     const onFinish = (values: FormValues) => {
         console.log("Form Submitted:", values);
+
+        createCamera(values).then(() => {
+            navigate("/cameras")
+        })
     };
 
     return (
@@ -30,71 +37,74 @@ const CloudSettingsForm: React.FC = () => {
                     label={<span className=" text-white">Ad</span>}
                     name="name"
                 >
-                    <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter camera name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">IP</span>}
-                    name="IP"
+                    name="ip"
                 >
                     <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">Port</span>}
-                    name="firstName"
+                    name="port"
                 >
                     <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">Şifrə</span>}
-                    name="firstName"
+                    name="raspberryPassword"
                 >
                     <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">Hostname</span>}
-                    name="firstName"
+                    name="hostname"
                 >
                     <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">SSH İstifadəçi adı</span>}
-                    name="firstName"
+                    name="sshUsername"
                 >
                     <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
 
                 <Form.Item
                     label={<span className=" text-white">Model</span>}
-                    name="firstName"
+                    name="modelInfo"
                 >
                     <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">Nömrə</span>}
-                    name="firstName"
+                    name="number"
                 >
                     <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
 
                 <Form.Item
                     label={<span className=" text-white">USB adı</span>}
-                    name="firstName"
+                    name="usbName"
                 >
-                    <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter your first name " className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
 
 
             </div>
-
-            <CameraTypes />
-
-
-            <Form.Item>
-                <Button className=" bg-primary text-white border-none h-12" htmlType="submit" block>
-                    Submit
-                </Button>
-
+            <Form.Item
+                label={<span className=" text-white">USB adı</span>}
+                name='type'
+            >
+                <CameraTypes />
             </Form.Item>
+
+
+            <Button className=" bg-primary text-white border-none h-12" htmlType="submit" block>
+                Submit
+            </Button>
+
+
         </Form>
     );
 };

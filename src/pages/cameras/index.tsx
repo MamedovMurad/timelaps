@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getCameras, takePhoto } from "../../api/camera"
+import { deleteCamera, getCameras, takePhoto } from "../../api/camera"
 import CameraCard from "./_components/card"
 import { CameraResponse } from "../../models/cameras"
 import { Empty, Spin } from "antd"
@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 import { GoProIcon } from "../../svg"
 import AddButton from "../../components/button/addButton"
+import { useNavigate } from "react-router-dom"
 
 type Props = {}
 
@@ -27,8 +28,9 @@ export default function CamerPage({ }: Props) {
         getCamerasData()
 
     }, [])
-
+    const navigate = useNavigate()
     function handleClickCamera(id: string, setloading: (param: boolean) => void) {
+
         setloading(true)
         takePhoto(id).then(() => {
 
@@ -36,6 +38,17 @@ export default function CamerPage({ }: Props) {
             getCamerasData()
             setloading(false)
         })
+    }
+
+    function handleRemoveCamera(id: string) {
+        deleteCamera(id).then(() => {
+
+            getCamerasData()
+        })
+    }
+
+    function goToAddCamera() {
+        navigate("/cameras/cloud-settings")
     }
 
     return (
@@ -49,7 +62,7 @@ export default function CamerPage({ }: Props) {
                     <li className=" cursor-pointer h-9 w-32 flex items-center justify-center border rounded-md border-neytral-500 text-white gap-2 text-sm"><span className=" w-5 h-5 rounded-full bg-[#50C878]"></span> Aktiv</li>
                     <li className=" cursor-pointer h-9 w-32 flex items-center justify-center border rounded-md border-neytral-500 text-white gap-2 text-sm"><span className=" w-5 h-5 rounded-full bg-[#FA5F55]"></span> Deaktiv</li>
                     <li className=" cursor-pointer h-9 flex items-center justify-center  ">
-                        <AddButton />                    </li>
+                        <AddButton onClick={goToAddCamera} />                    </li>
 
                 </ul>
             </div>
@@ -59,7 +72,7 @@ export default function CamerPage({ }: Props) {
                 {data && data.length > 0 ? (
                     <ul className="grid grid-cols-3 gap-2">
                         {data.map((item) => (
-                            <CameraCard key={item.id} data={item} handleClickCamera={handleClickCamera} />
+                            <CameraCard key={item.id} data={item} handleClickCamera={handleClickCamera} handleRemoveCamera={handleRemoveCamera} />
                         ))}
                     </ul>
                 ) : (

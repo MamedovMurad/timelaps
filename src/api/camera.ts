@@ -13,9 +13,21 @@ const takePhoto = async (id:string)=>{
   return response.data
 }
 
+const createCamera = async (param:any)=>{
+  const response = await axios.post(`/cameras`, param)
+  return response.data
+}
+
+const deleteCamera = async (id:string|number) => {
+  const response = await axios.delete("/cameras/"+id); // https://api.mydisk.az/api/v1/users/me?full=true
+  return response.data;
+};
+
 
 
 export {
   getCameras,
-  takePhoto
+  takePhoto,
+  deleteCamera,
+  createCamera
 }

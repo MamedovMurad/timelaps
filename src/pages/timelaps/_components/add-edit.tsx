@@ -60,8 +60,7 @@ const TimelapsAddEdit = ({ isModalOpen, setIsModalOpen }: any) => {
       open={isModalOpen}
       onOk={handleOk}
       onCancel={handleCancel}
-      okButtonProps={undefined}
-      cancelButtonProps={undefined}
+      footer={null}
     >
       <Form layout="vertical" onFinish={onFinish} form={form} className="bg-neytral-700">
         <div className="grid grid-cols-2 gap-x-2">
@@ -110,7 +109,7 @@ const TimelapsAddEdit = ({ isModalOpen, setIsModalOpen }: any) => {
             label="Layihənin bitmə vaxtı"
             rules={[{ required: true, message: 'Zəhmət olmasa bitmə tarixini daxil edin' }]}
           >
-            <DatePicker className="w-full bg-neytral-600 text-white border border-neytral-300 h-10 text-white" />
+            <DatePicker className="w-full bg-neytral-600 t border border-neytral-300 h-10 text-white" />
           </Form.Item>
 
           <Form.Item

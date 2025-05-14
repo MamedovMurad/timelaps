@@ -7,28 +7,32 @@ import { Spin, Switch } from "antd";
 import { useState } from "react";
 import CardMenu from "./cardMenu";
 import { CameraResponse } from "../../../../models/cameras";
+import noImage from "../../../../assets/images/noImage.jpg"
 
 
 type Props = {
     data: CameraResponse
-    handleClickCamera:(id:string, callBack:(params:boolean)=>void)=>void
+    handleClickCamera:(id:string, callBack:(params:boolean)=>void)=>void;
+    handleRemoveCamera?:(param?:any)=>any;
 }
 
-export default function CameraCard({ data,handleClickCamera }: Props) {
+export default function CameraCard({ data,handleClickCamera, handleRemoveCamera }: Props) {
     const [hide, sethide] = useState(false)
     const [open, setopen] = useState(false)
     const [loading, setloading] = useState(false)
+
+
     
     return (
         <li className=" bg-neytral-500 rounded-2xl  p-4 overflow-hidden relative  " >
             {
-                open ? <CardMenu setopen={setopen} />
+                open ? <CardMenu setopen={setopen} id={data.id} handleRemoveCamera={handleRemoveCamera}  />
 
                     : <div className="flex gap-2 justify-between">
                         <div className=" w-10/12 text-white min-h-[260px]">
                             <div className=" h-[240px] ">
                                 <div className={" w-full transition-all duration-200 overflow-hidden  " + (hide ? " opacity-0 h-0 w-0 " : "")}>
-                                    <img src={data.lastFileUrl} alt="" className=" w-full  rounded-2xl h-[240px]  " />
+                                    <img src={data.lastFileUrl||noImage} alt="" className=" w-full  rounded-2xl h-[240px] object-cover  " />
                                 </div>
 
 
