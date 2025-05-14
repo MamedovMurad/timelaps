@@ -11,7 +11,7 @@ const AuthPage = lazy(() => import("../pages/auth"));
 const ProjectPage = lazy(() => import("../pages/projects"));
 const CompanyPage = lazy(() => import("../pages/companies"));
 const CamerPage = lazy(() => import("../pages/cameras"));
-const CameraLogPage = lazy(() => import("../pages/cameras/logs"));
+// const CameraLogPage = lazy(() => import("../pages/cameras/logs"));
 const SystemSettings = lazy(() => import("../pages/cameras/system-settings"));
 
 const CloudSettingsPage = lazy(() => import("../pages/cameras/cloud-settings"));
@@ -94,16 +94,16 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
-      {
-        path: "cameras/logs",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <ProtectedRoute>
-              <CameraLogPage />
-            </ProtectedRoute>
-          </Suspense>
-        ),
-      },
+      // {
+      //   path: "cameras/logs",
+      //   element: (
+      //     <Suspense fallback={<div>Loading...</div>}>
+      //       <ProtectedRoute>
+      //         <CameraLogPage />
+      //       </ProtectedRoute>
+      //     </Suspense>
+      //   ),
+      // },
       {
         path: "cameras/system-settings",
         element: (
