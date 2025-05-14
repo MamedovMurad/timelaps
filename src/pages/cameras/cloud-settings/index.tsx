@@ -1,9 +1,9 @@
 import CloudSettingsForm from "../../../containers/form/cloudSettingsForm"
 
 
-type Props = {}
 
-const CloudSettingsPage = (props: Props) => {
+
+const CloudSettingsPage = () => {
     return (
         <main>
             <div>

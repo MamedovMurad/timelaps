@@ -8,7 +8,7 @@ import { useState } from "react"
 import Calendar from "../_components/calendar"
 import DisplayUi from "../_components/display"
 
-type Props = {}
+
 
 const demoItems = [
     { id: 1, title: 'Car 1', image: img1 },
@@ -33,7 +33,7 @@ const demoItems = [
     { id: 542, title: 'Car 5', image: img1 },
 ];
 
-export const CameraDetailPage = (props: Props) => {
+export const CameraDetailPage = () => {
     const [currnetImage, setcurrnetImage] = useState([img1, img12])
     const [first, after] = currnetImage
     function handleFirstImageHandle(img: string) {

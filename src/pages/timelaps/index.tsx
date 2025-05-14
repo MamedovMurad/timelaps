@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ConfigProvider, Space, Table, Tag } from 'antd';
+import { ConfigProvider, Space, Table } from 'antd';
 import type { TableProps } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { getProjectsOptions } from '../../api/project';
@@ -42,7 +42,7 @@ const columns: TableProps<Project>['columns'] = [
   {
     title: 'Action',
     key: 'action',
-    render: (_, record) => (
+    render: (_, ) => (
       <Space size="middle">
         <a><EditOutlined className=' text-primary text-xl' /></a>
         <a><DeleteOutlined className=' text-primary text-xl' /></a>

@@ -1,14 +1,13 @@
 import { Col, Flex, Radio } from 'antd'
 import { GoProIcon } from "../../svg";
 import {
-    FieldTimeOutlined,
-    FolderOpenOutlined,
+
     VideoCameraOutlined,
 } from '@ant-design/icons';
 
-type Props = {}
 
-export const CameraTypes = (props: Props) => {
+
+export const CameraTypes = () => {
   return (
     <div className=" mb-10">
                 <h4 className=" text-white mb-3">

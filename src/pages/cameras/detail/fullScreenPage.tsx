@@ -10,7 +10,7 @@ import DisplayUi from "../_components/display"
 import CameraSliderUi from "../_components/slider"
 import WeatherUI from "../_components/weather"
 
-type Props = {}
+
 
 const demoItems = [
     { id: 1, title: 'Car 1', image: img1 },
@@ -35,7 +35,7 @@ const demoItems = [
     { id: 542, title: 'Car 5', image: img1 },
 ];
 
-export const FullScreenPage = (props: Props) => {
+export const FullScreenPage = () => {
     const [currnetImage, setcurrnetImage] = useState(img1)
 
     function handleFirstImageHandle(img: string) {

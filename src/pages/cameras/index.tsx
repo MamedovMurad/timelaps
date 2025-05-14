@@ -4,11 +4,6 @@ import CameraCard from "./_components/card"
 import { CameraResponse } from "../../models/cameras"
 import { Empty, Spin } from "antd"
 import {
-    CameraOutlined,
-    FieldTimeOutlined,
-    FolderOpenOutlined,
-    PlusOutlined,
-    UsergroupAddOutlined,
     VideoCameraOutlined,
 } from '@ant-design/icons';
 import { GoProIcon } from "../../svg"

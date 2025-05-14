@@ -2,11 +2,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import img1 from '../../../../assets/images/bg.png'
-import img12 from '../../../../assets/images/camera.jpg'
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+
 
 interface CarouselItem {
   id: number;

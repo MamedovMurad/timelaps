@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Drawer, Form, Input, Select, Space } from 'antd';
+import  { useEffect, useState } from 'react';
+import {  Drawer, Form, Input, Select } from 'antd';
 import { getProjectsOptions } from '../../../api/project';
 import { getCompanies } from '../../../api/companies';
 import { crateUser } from '../../../api/user';

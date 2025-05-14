@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { ConfigProvider, Space, Table, Tag } from 'antd';
+import { ConfigProvider, Space, Table } from 'antd';
 import type { TableProps } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Company } from '../../models/cameras';
 import { getCompanies } from '../../api/companies';
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
-  email: string
-}
+
 
 const columns: TableProps<Company>['columns'] = [
 
@@ -46,7 +39,7 @@ const columns: TableProps<Company>['columns'] = [
   {
     title: 'Action',
     key: 'action',
-    render: (_, record) => (
+    render: (_,) => (
       <Space size="middle">
         <a><EditOutlined className=' text-primary text-xl' /></a>
         <a><DeleteOutlined className=' text-primary text-xl' /></a>

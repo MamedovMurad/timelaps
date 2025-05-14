@@ -56,7 +56,7 @@ const UsersPage: React.FC = () => {
         {
             title: 'Action',
             key: 'action',
-            render: (data, record) => (
+            render: (data) => (
                 <Space size="middle">
                     <a><EditOutlined onClick={()=>setCurrentuser(data)} className=' text-primary text-xl' /></a>
                     <Popconfirm

@@ -6,9 +6,8 @@ import { useNavigate } from "react-router-dom"
 
 
 
-type Props = {}
 
-export const AuthForm = (props: Props) => {
+export const AuthForm = () => {
   const [values, setValues] = useState({ email: "anarbabacan9@gmail.com", password: "soleH@le32" })
 const navigate  = useNavigate()
   const handleSubmit = async (e: any) => {
@@ -16,7 +15,7 @@ const navigate  = useNavigate()
     loginUser(values).then((data) => {
      navigate("/")
      localStorage.setItem("agent",data.data?.token)
-    }).catch((error: any) => {
+    }).catch(() => {
   
     })
   }
