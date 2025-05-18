@@ -43,57 +43,57 @@ const CloudSettingsForm: React.FC = () => {
                     label={<span className=" text-white">IP</span>}
                     name="ip"
                 >
-                    <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter your IP " className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">Port</span>}
                     name="port"
                 >
-                    <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter your Port" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">Şifrə</span>}
                     name="raspberryPassword"
                 >
-                    <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter your Password" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">Hostname</span>}
                     name="hostname"
                 >
-                    <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter your Hostname" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">SSH İstifadəçi adı</span>}
                     name="sshUsername"
                 >
-                    <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter your ssh user name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
 
                 <Form.Item
                     label={<span className=" text-white">Model</span>}
                     name="modelInfo"
                 >
-                    <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter your Model" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
                 <Form.Item
                     label={<span className=" text-white">Nömrə</span>}
                     name="number"
                 >
-                    <Input placeholder="Enter your first name" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter your first Phone" className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
 
                 <Form.Item
                     label={<span className=" text-white">USB adı</span>}
                     name="usbName"
                 >
-                    <Input placeholder="Enter your first name " className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
+                    <Input placeholder="Enter your Usb name " className=" h-12 !bg-transparent hover:bg-transparent border-neytral-300 !text-neytral-300 placeholder-neytral-300 " />
                 </Form.Item>
 
 
             </div>
             <Form.Item
-                label={<span className=" text-white">USB adı</span>}
+               
                 name='type'
             >
                 <CameraTypes />

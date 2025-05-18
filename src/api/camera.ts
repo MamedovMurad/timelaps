@@ -1,4 +1,5 @@
 
+import { getStartEndOfDayMs } from "../utility/dateUtils";
 import AxiosSingleton from "./agent";
 
 
@@ -23,11 +24,34 @@ const deleteCamera = async (id:string|number) => {
   return response.data;
 };
 
+const getFilesCarousel = async (
+  id: string,
+  fromDateMs?: number,
+  toDateMs?: number
+) => {
+  const defaultDates = getStartEndOfDayMs();
+  const from = fromDateMs ?? defaultDates.fromDateMs;
+  const to = toDateMs ?? defaultDates.toDateMs;
 
+  const response = await axios.get(`/cameras/${id}/files`, {
+    params: {
+      test: false,
+      fromDateMs: from,
+      toDateMs: to,
+      limit: 1000000000,
+      offset: 0,
+    },
+  });
+
+  return response.data;
+};
+
+                                                        //https://api.mydisk.az/api/v1/cameras/93/files?test=false&fromDateMs=1746428400000&toDateMs=1746514800000&limit=1000000000&offset=0
 
 export {
   getCameras,
   takePhoto,
   deleteCamera,
-  createCamera
+  createCamera,
+  getFilesCarousel
 }

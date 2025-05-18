@@ -2,11 +2,12 @@
 import { Link } from 'react-router-dom'
 
 type Props = {
-    isFull?: boolean
+    isFull?: boolean;
+    id:string
 }
 
-export default function DisplayUi({ isFull = false }: Props) {
-    const buttons = [{ name: "Tam ekran", path: "/cameras/detail/full-screen", isActive: isFull }, { name: "Müqayisə", path: "/cameras/detail", isActive: !isFull }]
+export default function DisplayUi({ isFull = false,id }: Props) {
+    const buttons = [{ name: "Tam ekran", path: "/cameras/detail/full-screen/"+id, isActive: isFull }, { name: "Müqayisə", path: "/cameras/detail/"+id, isActive: !isFull }]
     return (
         <div>
             <h4 className=' text-white mb-4 font-normal text-base mt-2'>Displey rejimləri</h4>

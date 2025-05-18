@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import React, { Suspense, lazy } from "react";
+import  { Suspense, lazy } from "react";
 import MainLayout from "../containers/layouts/MainLayout";
 import { CameraDetailPage } from "../pages/cameras/detail";
 import { FullScreenPage } from "../pages/cameras/detail/fullScreenPage";
@@ -125,7 +125,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "cameras/detail",
+        path: "cameras/detail/:id",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
             <ProtectedRoute>
@@ -135,7 +135,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "cameras/detail/full-screen",
+        path: "cameras/detail/full-screen/:id",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
             <ProtectedRoute>

@@ -8,6 +8,7 @@ import { useState } from "react";
 import CardMenu from "./cardMenu";
 import { CameraResponse } from "../../../../models/cameras";
 import noImage from "../../../../assets/images/noImage.jpg"
+import { Link } from "react-router-dom";
 
 
 type Props = {
@@ -45,7 +46,11 @@ export default function CameraCard({ data,handleClickCamera, handleRemoveCamera 
                             <div className="flex w-full mt-2 gap-x-2">
                                 <div className=" bg-neytral-600 w-7/12 p-3 rounded-lg">
                                     <div className="flex items-center justify-between cursor-pointer" onClick={() => setopen(!open)} >
-                                        <h5>{data.name}</h5>
+                                        <h5>
+                                            <Link to={"/cameras/detail/full-screen/"+data.id}>
+                                            {data.name}
+                                            </Link>
+                                        </h5>
                                         <SettingIcon />
                                     </div>
 
@@ -60,7 +65,7 @@ export default function CameraCard({ data,handleClickCamera, handleRemoveCamera 
                                             <span className=" text-[10px] font-normal">{data.type}</span>
                                         </div>
 
-                                        <Switch defaultChecked size="small" />
+                                        <Switch className="custom-switch" defaultChecked size="small" />
                                     </div>
                                 </div>
 
@@ -68,8 +73,8 @@ export default function CameraCard({ data,handleClickCamera, handleRemoveCamera 
                                     <EllipseVector />
                                     <div className="absolute  w-full ">
                                         <div className=" flex flex-col items-center justify-center h-full">
-                                            <p className=" text-sm">{data.usedStorage} TB</p>
-                                            <span className=" text-[10px] text-neytral-300">{data.totalStorage} TB-dan</span>
+                                            <p className=" text-sm">{data.usedStorage} GB</p>
+                                            <span className=" text-[10px] text-neytral-300">{data.totalStorage} GB-dan</span>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +85,7 @@ export default function CameraCard({ data,handleClickCamera, handleRemoveCamera 
                             <ul className="flex flex-col gap-3 ">
                                 <li className=" bg-neytral-600 rounded-lg w-16 h-16 flex justify-center items-center flex-col">
                                     <UpperChartIcon />
-                                    <span className=" text-white text-x mt-1">450 ms</span>
+                                    <span className=" text-white text-x mt-1">{ Math.round(data.lastPingValue) } ms</span>
                                 </li>
                                 <li className=" bg-neytral-600 rounded-lg w-16 h-16 flex justify-center items-center flex-col">
                                     <CircleWarningIcon />

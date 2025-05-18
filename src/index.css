@@ -4,75 +4,83 @@
 
 
 .ant-menu-item.ant-menu-item-selected {
-    @apply bg-primary  text-white;
-  }
-  
-  .custom-menu .ant-menu-item-selected:hover {
-    @apply bg-blue-700;
-  }
+  @apply bg-primary text-white;
+}
 
-  .no-hover-btn {
-    @apply bg-blue-600 text-white; /* example base style */
-  }
-  
-  .no-hover-btn:hover {
-    @apply bg-blue-600 text-white; /* override hover to stay the same */
-  }
+.custom-menu .ant-menu-item-selected:hover {
+  @apply bg-blue-700;
+}
+
+.no-hover-btn {
+  @apply bg-blue-600 text-white;
+  /* example base style */
+}
+
+.no-hover-btn:hover {
+  @apply bg-blue-600 text-white;
+  /* override hover to stay the same */
+}
 
 
-  /* Custom scrollbar */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(100, 100, 100, 0.5);
-    border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
-  }
-  .ant-menu-inline-collapsed >.ant-menu-item .ant-menu-item-icon{
-    display: block !important;
-  }
-  .ant-menu-inline-collapsed >.ant-menu-submenu>.ant-menu-submenu-title .anticon{
-    font-size: 24px !important;
-    display: block !important;
-  }
-.ant-menu-item{
-  display:  flex !important;
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+}
+
+.ant-menu-inline-collapsed>.ant-menu-item .ant-menu-item-icon {
+  display: block !important;
+}
+
+.ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title .anticon {
+  font-size: 24px !important;
+  display: block !important;
+}
+
+.ant-menu-item {
+  display: flex !important;
   gap: 16px;
   align-items: center;
 }
-.ant-menu-item-icon svg{
+
+.ant-menu-item-icon svg {
   font-size: 24px
 }
 
-.custom-ant-table .ant-table-thead > tr,.custom-ant-table .ant-table-tbody > tr {
-  @apply bg-neytral-500 ;
+.custom-ant-table .ant-table-thead>tr,
+.custom-ant-table .ant-table-tbody>tr {
+  @apply bg-neytral-500;
 
 }
 
-.custom-ant-table .ant-table-thead > tr>th,
-.custom-ant-table .ant-table-tbody > tr > td {
-/* Fully remove borders */
-border-bottom: 3px solid transparent;
-border-top: 3px solid transparent;
+.custom-ant-table .ant-table-thead>tr>th,
+.custom-ant-table .ant-table-tbody>tr>td {
+  /* Fully remove borders */
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
   background-color: transparent;
-  
+
 }
 
 /* Override the background of the select component */
 .ant-select-selector {
-  background-color: transparent !important; /* Tailwind blue-500 */
+  background-color: transparent !important;
+  /* Tailwind blue-500 */
   color: white !important;
   border: none !important;
 }
@@ -82,7 +90,8 @@ border-top: 3px solid transparent;
 
 /* Override the selected option background */
 .ant-select-item-option-selected {
-  background-color: #2563eb !important; /* Tailwind blue-600 */
+  background-color: #2563eb !important;
+  /* Tailwind blue-600 */
   color: white !important;
 }
 
@@ -90,7 +99,8 @@ border-top: 3px solid transparent;
 
 .custom-ant-table .ant-table-cell {
 
-  border-color: transparent !important; /* Ensures any remaining borders are invisible */
+  border-color: transparent !important;
+  /* Ensures any remaining borders are invisible */
 }
 
 
@@ -101,66 +111,90 @@ border-top: 3px solid transparent;
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  color: #333; /* optional text color */
+  color: #333;
+  /* optional text color */
 }
 
 .custom-radio-group .ant-radio-button-wrapper-checked {
   background-color: transparent !important;
-  color: #3b82f6 !important; /* Tailwind primary blue */
+  color: #3b82f6 !important;
+  /* Tailwind primary blue */
   border: none !important;
 }
 
 .custom-radio-group .ant-radio-button-wrapper:not(:first-child)::before {
   display: none !important;
 }
-th.ant-table-cell{
-  background-color:  #212C4C !important;
-  border-bottom: 10px solid #172040  !important; 
+
+th.ant-table-cell {
+  background-color: #212C4C !important;
+  border-bottom: 10px solid #172040 !important;
   color: #C0D1EE !important;
 }
-th.ant-table-cell::before{
+
+th.ant-table-cell::before {
   display: none !important;
 }
-.ant-table-cell{
+
+.ant-table-cell {
   background: #172040 !important;
 
 }
-:where(.css-dev-only-do-not-override-1d4w9r2).ant-table-wrapper .ant-table-tbody >tr >th, :where(.css-dev-only-do-not-override-1d4w9r2).ant-table-wrapper .ant-table-tbody >tr >td {
-   border-bottom: 10px solid #172040  !important; 
+
+:where(.css-dev-only-do-not-override-1d4w9r2).ant-table-wrapper .ant-table-tbody>tr>th,
+:where(.css-dev-only-do-not-override-1d4w9r2).ant-table-wrapper .ant-table-tbody>tr>td {
+  border-bottom: 10px solid #172040 !important;
 
 }
-.ant-input{
-  color:  white !important;
-  background:#212C4C  !important;
-  
+
+.ant-input {
+  color: white !important;
+  background: #212C4C !important;
+
 }
-.ant-input::placeholder{
+
+.ant-input::placeholder {
   color: white;
 }
-.ant-input-affix-wrapper, .ant-picker-range{
-  background:#212C4C  !important;
+
+.ant-input-affix-wrapper,
+.ant-picker-range {
+  background: #212C4C !important;
 }
-.ant-select-selection-placeholder{
-  color:  white !important;
+
+.ant-select-selection-placeholder {
+  color: white !important;
 }
-.ant-input-password-icon>svg{
-  fill: white;
-}
-.ant-select-selection-item-remove span svg, .ant-select-arrow svg{
-  fill: white;
-}
-.ant-select-item-option-state svg{
+
+.ant-input-password-icon>svg {
   fill: white;
 }
 
-.anticon-close svg{
+.ant-select-selection-item-remove span svg,
+.ant-select-arrow svg {
   fill: white;
 }
-.ant-modal-content{
-  background:#172040 !important;
+
+.ant-select-item-option-state svg {
+  fill: white;
+}
+
+.anticon-close svg {
+  fill: white;
+}
+
+.ant-modal-content {
+  background: #172040 !important;
   color: white;
 }
-.ant-picker-range span svg{
+
+.ant-picker-range span svg {
   fill: white;
 }
-  
+
+.custom-switch.ant-switch-checked:hover,
+.custom-switch.ant-switch-checked,
+.custom-switch.ant-switch-checked {
+  background-color: #50C878 !important;
+  /* Tailwind green-500 */
+}
