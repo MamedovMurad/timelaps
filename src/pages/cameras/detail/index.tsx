@@ -1,51 +1,35 @@
-import BeforeAfterSlider from "../_components/before-after-slider"
-import img1 from '../../../assets/images/bg.png'
-import img3 from '../../../assets/images/test1.jpg'
-import img4 from '../../../assets/images/test2.jpg'
-import img12 from '../../../assets/images/camera.jpg'
-import { MultiCarouselCamera } from "../_components/carousel"
-import { useState } from "react"
-import Calendar from "../_components/calendar"
-import DisplayUi from "../_components/display"
+// import BeforeAfterSlider from "../_components/before-after-slider"
+// import img1 from '../../../assets/images/bg.png'
+// import img3 from '../../../assets/images/test1.jpg'
+// import img4 from '../../../assets/images/test2.jpg'
+// import img12 from '../../../assets/images/camera.jpg'
+// import { MultiCarouselCamera } from "../_components/carousel"
+// import { useState } from "react"
+// import Calendar from "../_components/calendar"
+ import DisplayUi from "../_components/display"
+import { useParams } from "react-router-dom"
 
 
 
-const demoItems = [
-    { id: 1, title: 'Car 1', image: img1 },
-    { id: 2, title: 'Car 2', image: img12 },
-    { id: 3, title: 'Car 3', image: img3 },
-    { id: 4, title: 'Car 4', image: img4 },
-    { id: 5, title: 'Car 5', image: img1 },
-    { id: 14, title: 'Car 1', image: img12 },
-    { id: 24, title: 'Car 2', image: img3 },
-    { id: 34, title: 'Car 3', image: img4 },
-    { id: 44, title: 'Car 4', image: img12 },
-    { id: 54, title: 'Car 5', image: img1 },
-    { id: 12, title: 'Car 1', image: img1 },
-    { id: 22, title: 'Car 2', image: img12 },
-    { id: 32, title: 'Car 3', image: img1 },
-    { id: 42, title: 'Car 4', image: img12 },
-    { id: 52, title: 'Car 5', image: img1 },
-    { id: 142, title: 'Car 1', image: img1 },
-    { id: 242, title: 'Car 2', image: img12 },
-    { id: 342, title: 'Car 3', image: img1 },
-    { id: 442, title: 'Car 4', image: img12 },
-    { id: 542, title: 'Car 5', image: img1 },
-];
+
+
+
 
 export const CameraDetailPage = () => {
-    const [currnetImage, setcurrnetImage] = useState([img1, img12])
-    const [first, after] = currnetImage
-    function handleFirstImageHandle(img: string) {
-        console.log('fasf');
+    // const [currnetImage, setcurrnetImage] = useState([img1, img12])
+    // const [first, after] = currnetImage
+
+      const { id } = useParams();
+    // function handleFirstImageHandle(img: string) {
+    //     console.log('fasf');
 
 
-        setcurrnetImage([img, after])
-    }
-    function handleSecondImageHandle(img: string) {
+    //     setcurrnetImage([img, after])
+    // }
+    // function handleSecondImageHandle(img: string) {
 
-        setcurrnetImage([first, img])
-    }
+    //     setcurrnetImage([first, img])
+    // }
     return (
         <main>
 
@@ -55,7 +39,7 @@ export const CameraDetailPage = () => {
             <hr className=" border-neytral-300 opacity-20 rounded my-8" />
 
             <div className=" flex gap-x-5">
-                <div className=" w-9/12">
+                {/* <div className=" w-9/12">
                     <div className=" flex gap-x-2 mb-5">
                         <div className=" relative  w-6/12  block">
                             <MultiCarouselCamera items={demoItems} count={5.5} onclick={handleFirstImageHandle} />
@@ -66,10 +50,10 @@ export const CameraDetailPage = () => {
                         </div>
                     </div>
                     <BeforeAfterSlider beforeImg={after} afterImg={first} />
-                </div>
+                </div> */}
 
                 <div className=" w-3/12 flex-1 flex justify-between flex-col  ">
-                    <div>
+                    {/* <div>
                         <Calendar />
                     </div>
                     <div className="my-1">
@@ -77,8 +61,8 @@ export const CameraDetailPage = () => {
                     </div>
                     <div>
                         <Calendar />
-                    </div>
-                    <DisplayUi />
+                    </div> */}
+                    <DisplayUi id={id+""} />
                 </div>
             </div>
         </main>
