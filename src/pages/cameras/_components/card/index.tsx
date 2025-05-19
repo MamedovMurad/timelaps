@@ -7,7 +7,7 @@ import { Spin, Switch } from "antd";
 import { useState } from "react";
 import CardMenu from "./cardMenu";
 import { CameraResponse } from "../../../../models/cameras";
-import noImage from "../../../../assets/images/noImage.jpg"
+import noImage from "../../../../assets/images/no-photo.png"
 import { Link } from "react-router-dom";
 
 
@@ -32,8 +32,8 @@ export default function CameraCard({ data,handleClickCamera, handleRemoveCamera 
                     : <div className="flex gap-2 justify-between">
                         <div className=" w-10/12 text-white min-h-[260px]">
                             <div className=" h-[240px] ">
-                                <div className={" w-full transition-all duration-200 overflow-hidden  " + (hide ? " opacity-0 h-0 w-0 " : "")}>
-                                    <img src={data.lastFileUrl||noImage} alt="" className=" w-full  rounded-2xl h-[240px] object-cover  " />
+                                <div className={" w-full transition-all duration-200 overflow-hidden    " + (hide ? " opacity-0 h-0 w-0 " : "" ) }>
+                                    <img src={data.lastFileUrl||noImage} alt="" className={"   rounded-2xl w-full h-[240px]  "+(!data.lastFileUrl?"  m-auto bg-white p-5 object-contain":"  object-cover ")} />
                                 </div>
 
 

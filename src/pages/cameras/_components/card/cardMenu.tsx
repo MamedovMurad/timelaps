@@ -33,7 +33,7 @@ export default function CardMenu({ setopen, id,  handleRemoveCamera }: Props) {
 
             <ul className=" mt-10 text-white flex gap-3 flex-col">
                 <li className=" border border-neytral-300 rounded-lg p-4 text-center ">
-                    <Link to={'/'} >Sistem tənzimləmələri</Link>
+                    <Link to={'/cameras/system-settings'} >Sistem tənzimləmələri</Link>
                 </li>
                 <li className=" border border-neytral-300  rounded-lg p-4 text-center ">
                     <Link to={'/cameras/cloud-settings'}>Şəbəkə tənzimləmələri</Link>
