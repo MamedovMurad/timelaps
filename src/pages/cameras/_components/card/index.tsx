@@ -22,7 +22,19 @@ export default function CameraCard({ data,handleClickCamera, handleRemoveCamera 
     const [open, setopen] = useState(false)
     const [loading, setloading] = useState(false)
 
+function generateEllipsesForPercent(value:number, total:number){
 
+const result = value*100/total
+
+if (result<50) {
+    return   <EllipseVector color="#155724" />  //success
+}
+if (result<70) {    //normal
+    return <EllipseVector color="#856404" /> 
+}
+
+return <EllipseVector color="#721c24" />   //danger
+}
     
     return (
         <li className=" bg-neytral-500 rounded-2xl  p-4 overflow-hidden relative  " >
@@ -47,7 +59,7 @@ export default function CameraCard({ data,handleClickCamera, handleRemoveCamera 
                                 <div className=" bg-neytral-600 w-7/12 p-3 rounded-lg">
                                     <div className="flex items-center justify-between cursor-pointer" onClick={() => setopen(!open)} >
                                         <h5>
-                                            <Link to={"/cameras/detail/full-screen/"+data.id}>
+                                            <Link to={"/cameras/detail/full-screen/"+data.id+"?name="+data.name}>
                                             {data.name}
                                             </Link>
                                         </h5>
@@ -56,7 +68,7 @@ export default function CameraCard({ data,handleClickCamera, handleRemoveCamera 
 
                                     <div className="flex gap-x-1 items-center mt-3">
                                         <span><CalendarOutlined /></span>
-                                        <span className=" text-[10px] font-normal">06.01.2025  12:00 </span>
+                                        <span className=" text-xs font-normal">06.01.2025  12:00 </span>
                                     </div>
 
                                     <div className="flex  items-center mt-3 justify-between">
@@ -70,7 +82,7 @@ export default function CameraCard({ data,handleClickCamera, handleRemoveCamera 
                                 </div>
 
                                 <div className="bg-neytral-600 w-5/12 p-3 rounded-lg relative flex justify-center items-center cursor-pointer" onClick={() => sethide(!hide)}  >
-                                    <EllipseVector />
+                                 {generateEllipsesForPercent(data.usedStorage, data.totalStorage)}
                                     <div className="absolute  w-full ">
                                         <div className=" flex flex-col items-center justify-center h-full">
                                             <p className=" text-sm">{data.usedStorage} GB</p>

@@ -1,12 +1,15 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
 import dayjs, { Dayjs } from 'dayjs';
 
-const CustomCalendar: React.FC = () => {
+const CustomCalendar: React.FC<any> = ({getData}) => {
     const [currentDate, setCurrentDate] = useState(dayjs());
     const [selectedDate, setSelectedDate] = useState<Dayjs | null>(null);
+console.log(selectedDate?.format('YYYY-MM-DD'), 'formatted selectedDate');
+ 
+    
 
     const startOfMonth = currentDate.startOf('month');
     const endOfMonth = currentDate.endOf('month');
@@ -37,6 +40,14 @@ const CustomCalendar: React.FC = () => {
         'İyul', 'Avqust', 'Sentyabr', 'Oktyabr', 'Noyabr', 'Dekabr',
     ];
 
+
+    useEffect(() => {
+  if (selectedDate) {
+      getData?.(selectedDate?.format('YYYY-MM-DD'))
+  }
+    }, [selectedDate])
+    
+    
     return (
         <div className="bg-transparent text-white px-4 ">
             <div className="bg- rounded-xl  w-full max-w-md shadow-lg">
@@ -97,7 +108,9 @@ const CustomCalendar: React.FC = () => {
                                 key={dayItem.toString()}
                                 onClick={() => {
                                     setSelectedDate(dayItem);
+                            
                                     if (dayItem.month() !== currentDate.month()) {
+                                     
                                         setCurrentDate(dayItem); // Switch to next/prev month if needed
                                     }
                                 }}

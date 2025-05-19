@@ -44,7 +44,7 @@ export const  MultiCarouselCamera: React.FC<MultiCarouselProps> = ({ items, coun
       {items.map((item) => (
         <SwiperSlide key={item.id} onClick={()=>onclick(item.url)}>
           <div className={"rounded-lg shadow p-0 relative h-16 border  "+ (currentFile==item.url?" border-[#50C878]":"border-transparent")}>
-            <img src={insertWordAfterSubstring(item.url,"dev//","thumb_") } alt={item.dateInsertedStr} className="w-full h-full object-cover rounded-md " />
+            <img src={insertWordAfterSubstring(item?.url,"dev//","thumb_") } alt={item.dateInsertedStr} className="w-full h-full object-cover rounded-md " />
       <span className={' absolute bottom-0 right-0 rounded-l text-[9px]  text-white px-[6px] py-[3px] ' + (currentFile==item.url?"bg-[#50C878]":"bg-neytral-700")}>{timeOnly(item.dateInsertedStr) }</span>
           </div>
         </SwiperSlide>
