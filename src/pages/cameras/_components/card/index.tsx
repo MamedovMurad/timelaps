@@ -27,13 +27,13 @@ function generateEllipsesForPercent(value:number, total:number){
 const result = value*100/total
 
 if (result<50) {
-    return   <EllipseVector color="#155724" />  //success
+    return   <EllipseVector color="#28a745" />  //success
 }
 if (result<70) {    //normal
-    return <EllipseVector color="#856404" /> 
+    return <EllipseVector color="#F58020" /> 
 }
 
-return <EllipseVector color="#721c24" />   //danger
+return <EllipseVector color="#dc3545" />   //danger
 }
     
     return (

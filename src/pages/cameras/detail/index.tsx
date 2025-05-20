@@ -5,10 +5,11 @@ import { MultiCarouselCamera } from "../_components/carousel"
 import { useEffect, useState } from "react"
 import Calendar from "../_components/calendar"
 import DisplayUi from "../_components/display"
-import { useParams } from "react-router-dom"
+import { Link, useParams, useSearchParams } from "react-router-dom"
 import { getFilesCarousel } from "../../../api/camera"
 import { getStartEndOfDayMs } from "../../../utility/dateUtils"
 import { Spin } from "antd"
+import { BackIcon } from "../../../svg"
 
 
 
@@ -24,8 +25,8 @@ export const CameraDetailPage = () => {
     const [files, setFiles] = useState<{ id: number, dateInsertedStr: string, size: number, url: string }[]>([]);
     const [before_files, before_setFiles] = useState<{ id: number, dateInsertedStr: string, size: number, url: string }[]>([]);
     const [loading, setloading] = useState(false);
-   // const [searchParams] = useSearchParams();
-    //const cameraName = searchParams.get('name'); // ?myQuery=value
+    const [searchParams] = useSearchParams();
+    const cameraName = searchParams.get('name'); // ?myQuery=value
 
 
 
@@ -119,8 +120,13 @@ export const CameraDetailPage = () => {
     return (
         <main>
 
-            <div >
-                <h2 className=" text-white font-medium text-2xl">TLB001</h2>
+            <div className=' flex'>
+                <div>
+                    <Link to={"/cameras"} className=' flex gap-4 items-center hover:bg-neytral-500 transition-colors p-3 rounded-md'>
+                        <span><BackIcon /></span>
+                        <h2 className="text-white font-medium text-2xl">{cameraName}</h2>
+                    </Link>
+                </div>
             </div>
             <hr className=" border-neytral-300 opacity-20 rounded my-8" />
 
