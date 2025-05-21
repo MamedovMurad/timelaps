@@ -9,6 +9,7 @@ import CardMenu from "./cardMenu";
 import { CameraResponse } from "../../../../models/cameras";
 import noImage from "../../../../assets/images/no-photo.png"
 import { Link } from "react-router-dom";
+import { mstoDate } from "../../../../utility/dateUtils";
 
 
 type Props = {
@@ -68,7 +69,7 @@ return <EllipseVector color="#dc3545" />   //danger
 
                                     <div className="flex gap-x-1 items-center mt-3">
                                         <span><CalendarOutlined /></span>
-                                        <span className=" text-xs font-normal">06.01.2025  12:00 </span>
+                                        <span className=" text-xs font-normal">{data?.lastPhotoInSec&&mstoDate(data.lastPhotoInSec)}</span>
                                     </div>
 
                                     <div className="flex  items-center mt-3 justify-between">
