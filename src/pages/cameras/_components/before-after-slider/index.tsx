@@ -1,3 +1,4 @@
+import { Spin } from 'antd';
 import React, { useState, useRef, useEffect } from 'react';
 
 interface BeforeAfterSliderProps {
@@ -6,10 +7,12 @@ interface BeforeAfterSliderProps {
 }
 
 const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ beforeImg, afterImg }) => {
+  const [loadingBefore, setLoadingBefore] = useState(true);
+  const [loadingAfter, setLoadingAfter] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [sliderX, setSliderX] = useState(50); // percentage
+  const [sliderX, setSliderX] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const [containerWidth, setContainerWidth] = useState(0); // for dynamic min-width
+  const [containerWidth, setContainerWidth] = useState(0);
 
   const handleMove = (e: MouseEvent | TouchEvent) => {
     if (!containerRef.current) return;
@@ -19,13 +22,17 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ beforeImg, afterI
     setSliderX(newSliderX);
   };
 
-  const handleDragStart = () => {
-    setIsDragging(true);
-  };
+  const handleDragStart = () => setIsDragging(true);
+  const handleDragEnd = () => setIsDragging(false);
 
-  const handleDragEnd = () => {
-    setIsDragging(false);
-  };
+  // Reset loading states when image sources change
+  useEffect(() => {
+    setLoadingBefore(true);
+  }, [beforeImg]);
+
+  useEffect(() => {
+    setLoadingAfter(true);
+  }, [afterImg]);
 
   useEffect(() => {
     const onMove = (e: MouseEvent | TouchEvent) => {
@@ -46,7 +53,6 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ beforeImg, afterI
     };
   }, [isDragging]);
 
-  // Track container width
   useEffect(() => {
     const updateWidth = () => {
       if (containerRef.current) {
@@ -54,7 +60,6 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ beforeImg, afterI
       }
     };
     updateWidth();
-
     window.addEventListener('resize', updateWidth);
     return () => {
       window.removeEventListener('resize', updateWidth);
@@ -64,23 +69,48 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ beforeImg, afterI
   return (
     <div
       ref={containerRef}
-      className="relative w-full mx-auto aspect-video overflow-hidden rounded-2xl shadow-lg select-none "
-      style={{ maxWidth: '100%' }} // override fixed max-w-3xl
+      className="relative w-full mx-auto aspect-video overflow-hidden rounded-2xl shadow-lg select-none"
+      style={{ maxWidth: '100%' }}
       onMouseDown={handleDragStart}
       onTouchStart={handleDragStart}
       onMouseUp={handleDragEnd}
       onTouchEnd={handleDragEnd}
     >
       {/* Before Image */}
-      <img src={beforeImg} alt="Before" className="absolute inset-0 w-full h-full object-cover" />
+      {loadingBefore && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
+          <Spin size="large" />
+        </div>
+      )}
+      <img
+        key={beforeImg}
+        src={beforeImg}
+        alt="Before"
+        onLoad={() => setLoadingBefore(false)}
+        onError={() => setLoadingBefore(false)}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+          loadingBefore ? 'opacity-0' : 'opacity-100'
+        }`}
+      />
 
       {/* After Image */}
-      <div
-        className="absolute inset-0 overflow-hidden "
-        style={{ width: `${sliderX}%` }}
-      >
-        <div style={{ minWidth: `${containerWidth}px` }} className="">
-          <img src={afterImg} alt="After" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 overflow-hidden" style={{ width: `${sliderX}%` }}>
+        {loadingAfter && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
+            <Spin size="large" />
+          </div>
+        )}
+        <div style={{ minWidth: `${containerWidth}px` }}>
+          <img
+            key={afterImg}
+            src={afterImg}
+            alt="After"
+            onLoad={() => setLoadingAfter(false)}
+            onError={() => setLoadingAfter(false)}
+            className={`w-full h-full object-cover transition-opacity duration-300 ${
+              loadingAfter ? 'opacity-0' : 'opacity-100'
+            }`}
+          />
         </div>
       </div>
 
