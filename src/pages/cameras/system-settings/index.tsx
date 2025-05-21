@@ -1,11 +1,21 @@
+import { Link } from "react-router-dom";
 import SecondaryButton from "../../../components/button/secondary";
+import { BackIcon } from "../../../svg";
 
 
 export default function SystemSettings() {
     return (
         <main>
-            <div >
-                <h2 className=" text-white font-medium text-2xl">Kameranın sistem tənzimləmələri</h2>
+
+
+            <div className=' flex'>
+                <div>
+                    <Link to={"/cameras"} className=' flex gap-4 items-center hover:bg-neytral-500 transition-colors p-3 rounded-md'>
+                        <span><BackIcon /></span>
+                        <h2 className=" text-white font-medium text-2xl">Kameranın sistem tənzimləmələri</h2>
+
+                    </Link>
+                </div>
             </div>
             <hr className=" border-neytral-300 opacity-20 rounded my-8" />
 
@@ -24,13 +34,13 @@ export default function SystemSettings() {
 
                 <ul className=" mt-20 grid grid-cols-3 gap-x-5">
                     <li>
-                       <SecondaryButton text="DSLR USB sıfırla" onClick={()=>''}/>
+                        <SecondaryButton text="DSLR USB sıfırla" onClick={() => ''} />
                     </li>
                     <li>
-                       <SecondaryButton text="GoPro USB sıfırla" onClick={()=>''}/>
+                        <SecondaryButton text="GoPro USB sıfırla" onClick={() => ''} />
                     </li>
                     <li>
-                       <SecondaryButton text="Modem / GSM Port sıfırla" onClick={()=>''}/>
+                        <SecondaryButton text="Modem / GSM Port sıfırla" onClick={() => ''} />
                     </li>
                 </ul>
 
