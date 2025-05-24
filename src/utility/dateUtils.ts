@@ -28,9 +28,9 @@ export const timeOnly = (dateInsertedStr: string) => new Date(dateInsertedStr).t
   second: '2-digit',
 });
 
-export const mstoDate = (ms:number) => {
-
-  const date = new Date(ms);
+export const mstoDate = (ms: number) => {
+  // Subtract the delay from the current time
+  const date = new Date(Date.now() - ms);
 
   const formatted = date.toLocaleString('de-DE', {
     day: '2-digit',
@@ -41,8 +41,8 @@ export const mstoDate = (ms:number) => {
     hour12: false,
   });
 
-  console.log(formatted); // Output: "06.01.2025, 12:00"
+  console.log(formatted); // e.g., "24.05.2025, 12:34"
 
+  return formatted;
+};
 
-  return formatted
-}

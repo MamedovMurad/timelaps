@@ -9,6 +9,10 @@ const axios = AxiosSingleton.getInstance();
   const response = await axios.get("/cameras"); // https://api.mydisk.az/api/v1/users/me?full=true
   return response.data;
 };
+const servo = async (id:string)=>{
+  const response = await axios.post(`/cameras/${id}/servo`)
+  return response.data
+}
 const takePhoto = async (id:string)=>{
   const response = await axios.post(`/cameras/${id}/photo`)
   return response.data
@@ -53,5 +57,6 @@ export {
   takePhoto,
   deleteCamera,
   createCamera,
-  getFilesCarousel
+  getFilesCarousel,
+  servo
 }

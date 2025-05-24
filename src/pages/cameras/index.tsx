@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { deleteCamera, getCameras, takePhoto } from "../../api/camera"
+import { deleteCamera, getCameras, servo, takePhoto } from "../../api/camera"
 import CameraCard from "./_components/card"
 import { CameraResponse } from "../../models/cameras"
 import { Empty, Spin } from "antd"
@@ -51,6 +51,13 @@ export default function CamerPage({ }: Props) {
         navigate("/cameras/cloud-settings")
     }
 
+    function handleChangeServo(param: string, callBack: (param: boolean) => void) {
+        callBack(true)
+        servo(param).finally(() => {
+            callBack(false)
+        })
+    }
+
     return (
         <main>
             <div className=" flex justify-between">
@@ -72,7 +79,7 @@ export default function CamerPage({ }: Props) {
                 {data && data.length > 0 ? (
                     <ul className="grid grid-cols-3 gap-2">
                         {data.map((item) => (
-                            <CameraCard key={item.id} data={item} handleClickCamera={handleClickCamera} handleRemoveCamera={handleRemoveCamera} />
+                            <CameraCard handleChangeServo={handleChangeServo} key={item.id} data={item} handleClickCamera={handleClickCamera} handleRemoveCamera={handleRemoveCamera} />
                         ))}
                     </ul>
                 ) : (

@@ -16,7 +16,7 @@ class AxiosSingleton {
   public static getInstance(): AxiosInstance {
     if (!AxiosSingleton.instance) {
       AxiosSingleton.instance = axios.create({
-        baseURL: "https://api.mydisk.az/api/v1/",
+        baseURL:"https://api.tlb.az/api/v1/", //"https://api.mydisk.az/api/v1/", 
         timeout: 10000,
       });
 
